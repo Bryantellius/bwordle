@@ -2,32 +2,13 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 20px;
+}
+
 .app {
   min-height: 100vh;
   height: fit-content;
   background-color: #333;
   color: #eee;
-}
-
-.letter {
-  display: inline-block;
-  background-color: #555;
-  color: #eee;
-  padding: 10px;
-  border: 3px solid #eee;
-  border-radius: 8px;
-  margin: 5px;
-  min-height: 4rem;
-  min-width: 4rem;
-  text-align: center;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-.letterIn {
-  background-color: #005500;
-}
-
-.letterNear {
-  background-color: #aaaa00;
 }
