@@ -3,7 +3,8 @@ import Cell from "./Cell";
 
 const CurrentRow = ({ guess, className }) => {
   const currentGuess = guess.split("");
-  const blanks = new Array(MAX_WORD_LENGTH - currentGuess.length);
+  console.log(currentGuess);
+  const blanks = Array.from(Array(MAX_WORD_LENGTH - currentGuess.length));
 
   return (
     <div className={`${className} d-flex justify-content-center mb-1`}>

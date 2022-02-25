@@ -7,7 +7,7 @@ const Cell = ({ value, status, isRevealing, isCompleted, position }) => {
 
   return (
     <div
-      className={`bg-light ${isFilled ? "cell-fill-animation" : ""} ${
+      className={`bg-light cell-wrapper ${isFilled ? "cell-fill-animation" : ""} ${
         shouldReveal ? "cell-reveal" : ""
       }`}
     >
