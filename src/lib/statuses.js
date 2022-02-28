@@ -1,42 +1,34 @@
-// import { correctAnswer } from "./words";
-let correctAnswer = "test";
+import { TEST_SOLUTION } from "../constants/settings";
+
+export const getStatus = (letter, index) => {
+  if (letter == TEST_SOLUTION.charAt(index)) {
+    return "green";
+  } else if (TEST_SOLUTION.includes(letter)) {
+    return "yellow";
+  } else {
+    return "gray";
+  }
+};
 
 export const getStatuses = (guesses) => {
-  const charObj = {};
+  let statuses = {};
 
   guesses.forEach((word) => {
     word.split("").forEach((letter, i) => {
-      if (!correctAnswer.includes(letter)) {
-        // letter not in the solution
-        return (charObj[letter] = "absent");
-      }
-
-      if (letter === correctAnswer[i]) {
-        // letter is in the solution at the correct spot
-        return (charObj[letter] = "correct");
-      }
-
-      if (charObj[letter] !== "correct") {
-        // letter is in the solution
-        return (charObj[letter] = "present");
+      if (letter == TEST_SOLUTION.charAt(i)) {
+        statuses[letter] = "green";
+      } else if (
+        statuses[letter] != "green" &&
+        TEST_SOLUTION.includes(letter)
+      ) {
+        statuses[letter] = "yellow";
+      } else {
+        statuses[letter] = "gray";
       }
     });
   });
 
-  return charObj;
-};
+  console.log(statuses);
 
-export const getGuessStatuses = (guess) => {
-  return guess.split("").map((letter, index) => {
-    if (!correctAnswer.includes(letter)) {
-      // letter not in the solution
-      return "absent";
-    } else if (letter === correctAnswer[index]) {
-      // letter is in the solution at the correct spot
-      return "correct";
-    } else {
-      // letter is in the solution
-      return "present";
-    }
-  });
+  return statuses;
 };
